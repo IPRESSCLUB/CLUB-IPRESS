@@ -11,12 +11,12 @@ const team = [
   {id:'zineb',first:'ZINEB',last:'El Kenz',role:'Responsable du montage',short:'Montage'}
 ];
 const photos = [
-  {src:'assets/crew.jpg',caption:'L’énergie du collectif.',alt:'Des membres d’IPRESS présentent leurs badges sur le campus'},
-  {src:'assets/campus.jpg',caption:'Un campus qui rassemble.',alt:'Grande photographie de groupe devant l’entrée de l’IFMEREE'},
-  {src:'assets/together.jpg',caption:'Les liens se créent.',alt:'Des membres réunis en extérieur devant l’école'},
-  {src:'assets/badges.jpg',caption:'Dans les coulisses.',alt:'Trois membres IPRESS montrent leurs badges et leur matériel'},
-  {src:'assets/welcome.jpg',caption:'Le plaisir d’être ensemble.',alt:'Le groupe réuni autour d’une table sur le campus'},
-  {src:'assets/action.jpg',caption:'Toujours dans l’action.',alt:'Deux membres de l’équipe avec un appareil photo et du matériel'}
+  {src:'crew.jpg',caption:'L’énergie du collectif.',alt:'Des membres d’IPRESS présentent leurs badges sur le campus'},
+  {src:'campus.jpg',caption:'Un campus qui rassemble.',alt:'Grande photographie de groupe devant l’entrée de l’IFMEREE'},
+  {src:'together.jpg',caption:'Les liens se créent.',alt:'Des membres réunis en extérieur devant l’école'},
+  {src:'badges.jpg',caption:'Dans les coulisses.',alt:'Trois membres IPRESS montrent leurs badges et leur matériel'},
+  {src:'welcome.jpg',caption:'Le plaisir d’être ensemble.',alt:'Le groupe réuni autour d’une table sur le campus'},
+  {src:'action.jpg',caption:'Toujours dans l’action.',alt:'Deux membres de l’équipe avec un appareil photo et du matériel'}
 ];
 const missions = [
   {interest:'l’écriture et le journalisme',title:'Raconte une première impression.',description:'En cinq lignes, raconte un détail de ta première journée à l’IFMEREE. Le lieu, une rencontre, une surprise : ton point de vue suffit.'},
@@ -64,7 +64,7 @@ window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requ
 window.addEventListener('resize',updateProgress);updateProgress();
 
 const symbols=['Aa','◎','✳','ıılıı'];
-const artImages={1:'assets/art-photo-video.jpg',2:'assets/art-design.jpg',3:'assets/art-sound.jpg'};
+const artImages={1:'art-photo-video.jpg',2:'art-design.jpg',3:'art-sound.jpg'};
 function artNode(index){
   if(index===1){const wrap=document.createElement('i');wrap.className='art-photo art-circles';wrap.innerHTML='<i class="art-ring"><i class="art-ring-inner"></i></i>';return wrap}
   if(index===2){const star=document.createElement('i');star.className='art-photo art-star';star.innerHTML='<i></i>';return star}
@@ -83,7 +83,7 @@ let memberIndex=0;
 const stage=$('.team-stage'),characters=$('#characters'),selector=$('#crew-selector');
 team.forEach((member,index)=>{
   const character=document.createElement('button');character.type='button';character.className='character';character.dataset.index=index;character.setAttribute('aria-label',`Découvrir ${member.first} ${member.last}, ${member.role}`);
-  const img=document.createElement('img');img.src=`assets/${member.id}.webp`;img.alt='';img.width=650;img.height=960;img.loading='lazy';img.decoding='async';img.draggable=false;character.append(img);character.addEventListener('click',()=>{if(Date.now()>suppressClickUntil)selectMember(index)});characters.append(character);
+  const img=document.createElement('img');img.src=`${member.id}.webp`;img.alt='';img.width=650;img.height=960;img.loading='lazy';img.decoding='async';img.draggable=false;character.append(img);character.addEventListener('click',()=>{if(Date.now()>suppressClickUntil)selectMember(index)});characters.append(character);
   const tab=document.createElement('button');tab.type='button';tab.className='crew-tab';tab.dataset.index=index;tab.setAttribute('aria-label',`${member.first} ${member.last}, ${member.role}`);
   const number=document.createElement('span');number.className='mono';number.textContent=`0${index+1}`;
   const name=document.createElement('strong');name.textContent=member.first;

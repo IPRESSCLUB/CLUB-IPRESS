@@ -1,4 +1,4 @@
-import * as THREE from './vendor/three.module.min.js';
+import * as THREE from './three.module.min.js';
 
 const canvas=document.querySelector('#camera-canvas');
 const container=document.querySelector('#camera-stage');
