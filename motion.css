@@ -1,0 +1,65 @@
+/* Additive motion layer; all original layout, type, colours and media remain. */
+html.motion-layer.enhanced .reveal { opacity: 1; transform: none; transition: none; }
+@media (hover:hover) and (pointer:fine) {
+  .primary-button:not(:disabled):hover { transform: translateY(-3px); }
+  .primary-button:not(:disabled):active { transform: translateY(0); }
+  .creative-choice .choice-symbol { transition: transform .45s var(--ease); }
+  .creative-choice:hover .choice-symbol { transform: rotate(-9deg) scale(1.08); }
+  .text-link > span, .join-link > span { display: inline-block; transition: transform .3s var(--ease); }
+  .text-link:hover > span, .join-link:hover > span { transform: translate(3px,-2px); }
+}
+.application-form[aria-busy="true"] #app-submit { position:relative; }
+.application-form[aria-busy="true"] #app-submit > span:last-child { font-size:0; width:16px; height:16px; border:2px solid #ffffff60; border-top-color:#fff; border-radius:50%; animation:ipress-sending .8s linear infinite; }
+@keyframes ipress-sending { to { transform:rotate(360deg); } }
+/* A small editorial receipt, revealed only by the successful API response. */
+.application-success.ipress-success { position:relative; padding:0; margin-top:28px; overflow:hidden; border:1px solid var(--line); border-top:4px solid var(--blue); border-radius:4px; background:var(--paper); box-shadow:0 16px 42px -26px #18221c38; animation:ipress-receipt .7s var(--ease) both; }
+.ipress-success:focus-visible { outline:2px solid var(--blue); outline-offset:5px; }
+.success-rail { padding:17px 24px; display:flex; justify-content:space-between; align-items:center; gap:12px; border-bottom:1px solid var(--line); font-size:9px; letter-spacing:.08em; color:var(--blue); }
+.success-state { display:flex; align-items:center; gap:7px; font-size:9px; font-weight:700; }
+.success-state i { width:6px; height:6px; border-radius:50%; background:var(--green-dark); flex:none; }
+.success-content { padding:30px 28px 28px; }
+.success-emblem { position:relative; width:88px; height:88px; margin:0 0 26px 3px; }
+.success-emblem svg { position:relative; width:80px; height:80px; color:var(--blue); }
+.success-orbit { position:absolute; width:80px; height:80px; background:var(--green); border-radius:50%; left:9px; top:7px; animation:ipress-orbit .85s var(--ease) both; }
+.success-ring { stroke:currentColor; stroke-width:1.5; stroke-dasharray:214; animation:ipress-ring .8s var(--ease) both; transform-origin:center; }
+.success-tick { stroke:currentColor; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:50; animation:ipress-check .5s .35s var(--ease) both; }
+.success-spark { position:absolute; color:var(--blue); line-height:1; animation:ipress-spark .9s .25s var(--ease) both; }
+.spark-one { font-size:25px; right:-36px; top:4px; }
+.spark-two { font-size:14px; left:-13px; bottom:6px; color:var(--green-dark); animation-delay:.38s; }
+.success-kicker { display:block; font-size:9px; letter-spacing:.07em; color:var(--muted); }
+.pages-application-handoff .ipress-success h4 { color:var(--blue); margin:15px 0; font-size:clamp(27px,3vw,39px); line-height:1.08; letter-spacing:-.05em; }
+.ipress-success h4 em { font-family:inherit; font-weight:inherit; font-style:normal; position:relative; }
+.ipress-success h4 em:after { content:''; position:absolute; left:0; right:0; bottom:-3px; height:3px; background:var(--green); transform-origin:left; animation:ipress-underline .6s .65s var(--ease) both; }
+.ipress-success p { color:var(--muted); font-size:13px; line-height:1.8; max-width:52ch; }
+.success-copy { animation:ipress-receipt .65s .12s var(--ease) both; }
+.success-next { display:flex; align-items:flex-start; gap:18px; margin:24px 0; padding:20px 0; border-top:1px dashed var(--line); border-bottom:1px dashed var(--line); animation:ipress-receipt .65s .22s var(--ease) both; }
+.success-next-number { color:var(--blue); font-size:9px; padding-top:5px; white-space:nowrap; }
+.success-next p { color:var(--ink); font-size:12px; }
+.success-next p span { color:var(--muted); font-size:11px; }
+.success-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px; animation:ipress-receipt .65s .3s var(--ease) both; }
+.pages-application-handoff .success-actions .primary-button { margin:0; font-size:11px; padding:15px 18px; gap:20px; }
+.success-actions .text-link { font-size:11px; }
+.success-signature { display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--pale); padding:15px 24px; border-top:1px solid var(--line); font-size:8px; letter-spacing:.045em; color:var(--green-dark); }
+.success-signature > span:last-child { font-size:22px; line-height:1; }
+@keyframes ipress-receipt { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+@keyframes ipress-ring { from { stroke-dashoffset:214; transform:rotate(-70deg); } to { stroke-dashoffset:0; transform:rotate(0); } }
+@keyframes ipress-check { from { stroke-dashoffset:50; } to { stroke-dashoffset:0; } }
+@keyframes ipress-orbit { from { opacity:0; transform:scale(.5) rotate(-20deg); } to { opacity:1; transform:scale(1) rotate(0); } }
+@keyframes ipress-spark { from { opacity:0; transform:scale(.2) rotate(-50deg); } to { opacity:1; transform:scale(1) rotate(0); } }
+@keyframes ipress-underline { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@media(max-width:560px) {
+  .success-rail { padding:14px 18px; flex-wrap:wrap; font-size:8px; }
+  .success-state { font-size:8px; }
+  .success-content { padding:26px 20px; }
+  .success-next { gap:12px; }
+  .success-next-number { font-size:8px; }
+  .success-actions { flex-direction:column; align-items:stretch; }
+  .success-actions .text-link { align-self:flex-start; }
+  .success-signature { padding:14px 18px; font-size:7px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html:not(.allow-motion) .ipress-success, html:not(.allow-motion) .ipress-success *, html:not(.allow-motion) .ipress-success *:after { animation:none!important; }
+  html:not(.allow-motion) .primary-button:hover, html:not(.allow-motion) .creative-choice:hover .choice-symbol, html:not(.allow-motion) .text-link:hover > span { transform:none; }
+}
+html.reduce-motion .ipress-success, html.reduce-motion .ipress-success *, html.reduce-motion .ipress-success *:after { animation:none!important; }
+html.reduce-motion .primary-button:hover, html.reduce-motion .creative-choice:hover .choice-symbol, html.reduce-motion .text-link:hover > span { transform:none; }
