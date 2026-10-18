@@ -1,16 +1,15 @@
-/* Shared renderer: all states use the same authored SVG geometry. */
+/* Deterministic masks: the outline and shaded pixels share exactly one composition. */
 (() => {
   'use strict';
   const clamp = value => Math.max(0, Math.min(1, value));
   const drawings = new WeakMap(), fronts = new WeakMap();
-  const ease = t => 1 - Math.pow(1 - t, 1.7);
+  const ease = t => 1 - Math.pow(1 - t, 1.5);
   function facade(svg, value) {
     const p = clamp(value);
     let paths = drawings.get(svg);
     if (!paths) {
-      paths = Array.from(svg.querySelectorAll('.ifm-vector-stroke'), el => ({
-        el, start: +el.dataset.from, end: +el.dataset.to,
-        span: +el.dataset.span || 1, previous: -1
+      paths = Array.from(svg.querySelectorAll('.ifm-brush'), el => ({el,
+        start: +el.dataset.from, end: +el.dataset.to, previous: -1
       }));
       drawings.set(svg, paths);
     }
@@ -18,44 +17,23 @@
       const t = clamp((p - item.start) / (item.end - item.start));
       if (t === item.previous) continue;
       item.previous = t;
-      if (t === 1) {
-        item.el.style.removeProperty('stroke-dasharray');
-        item.el.style.removeProperty('stroke-dashoffset');
-        item.el.style.removeProperty('opacity');
-      } else {
-        item.el.style.strokeDasharray = `${item.span} ${item.span}`;
-        item.el.style.strokeDashoffset = (item.span * (1 - ease(t))).toFixed(6);
-        item.el.style.opacity = t === 0 ? '0' : '1';
-      }
+      item.el.setAttribute('stroke-dasharray', '1 1');
+      item.el.setAttribute('stroke-dashoffset', (1 - ease(t)).toFixed(6));
+      // Round caps otherwise leave a spot even at zero length.
+      item.el.setAttribute('visibility', t === 0 ? 'hidden' : 'visible');
     }
-    // Depth develops after structural/window passes, while fine strokes continue.
-    svg.style.setProperty('--ifm-paint', ease(clamp((p - .59) / .41)).toFixed(4));
     svg.dataset.progress = p.toFixed(3);
   }
   function campus(svg, value) {
     const p = clamp(value);
     let front = fronts.get(svg);
     if (!front) {
-      const path = svg.querySelector('.ifm-develop-front');
-      const bounds = svg.getAttribute('viewBox').split(/\s+/).map(Number);
-      // A fixed irregular ink edge, translated in the shared artwork coordinates.
-      const points = [];
-      for (let i = 0; i <= 202; i++) {
-        points.push([-110 + i * 9.5, Math.sin(i * 1.91) * 8 + Math.cos(i * .43) * 12 + Math.sin(i * .11) * 18]);
-      }
-      let d = 'M-150 -1400H1800V0';
-      for (let i = points.length - 1; i >= 0; i--) {
-        const a = points[i];
-        d += `L${a[0]} ${a[1].toFixed(2)}`;
-      }
-      path.setAttribute('d', d + 'L-150 0Z');
-      front = {path, top: bounds[1], height: bounds[3], previous: -1};
+      front = {path: svg.querySelector('.ifm-develop-front'), previous: -1};
       fronts.set(svg, front);
     }
     if (p !== front.previous) {
-      front.path.setAttribute('transform', `translate(0 ${(front.top - 80 + p * (front.height + 160)).toFixed(2)})`);
-      front.previous = p;
-      svg.dataset.progress = p.toFixed(3);
+      front.path.setAttribute('transform', `translate(0 ${(-220 + p * 1413).toFixed(2)})`);
+      front.previous = p; svg.dataset.progress = p.toFixed(3);
     }
   }
   function scrollProgress(top, viewportHeight) {

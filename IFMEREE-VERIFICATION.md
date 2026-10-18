@@ -1,60 +1,43 @@
-# Vérification — état réel de cette livraison
+# Vérification — IFMEREE encre v3
 
-## Observation de Heron
+## Référence examinée
 
-Référence consultée dans un navigateur interactif à environ 1363 × 936 px. Le défilement de la seconde scène a été observé à plusieurs positions, ainsi qu’un retour vers une position antérieure.
+Heron (`https://heronaiapp.com/`) a été consulté dans un navigateur réel : chargement et état terminé de la façade, déplacement du pointeur, puis défilement avant/arrière du second dessin et états intermédiaires. Son image de façade dans `.home-hero-img-inner` a bien une taille intrinsèque de 2060 × 1037. La seconde scène combine `.ink-mask-img.main` et `.ink-mask-img.sub.ink-filter`, avec un masque courbe, du bruit fractal, une déformation, un flou et un ajustement alpha.
 
-- Première scène : cadre technique, règle graduée, dessin architectural dense et guides au pointeur. Des états de chargement et le résultat terminé ont été vus. La durée du dessin autonome, séparée du chargement, n’a pas pu être mesurée de façon fiable.
-- Seconde scène : développement vertical du haut vers le bas avec une limite irrégulière, de plus en plus d’ombres et de matières, cercle révélé dans la même progression. Les contours de la partie inférieure restent visibles pendant que le haut est déjà rendu. La progression reste stable quand le défilement s’arrête.
-- Repères observés sur le rectangle `.home-intro`, haut à environ 275 / 135 / −5 / −145 px, pour une hauteur d’environ 684 px : de presque tous les contours à un rendu complet. Ces valeurs décrivent cette observation ; elles ne sont pas des spécifications universelles du site.
-- Le défilement, et non le déplacement du pointeur, commande cette transformation. Aucun diagnostic de bâtiment ou message de violation de la référence n’a été repris.
-- Pas de test tactile réel sur Heron. Aucun mécanisme technique interne ou chiffre de performance de Heron n’est affirmé.
+Ces observations ont guidé le travail, sans prétendre mesurer exactement toutes les phases d’ouverture ni reproduire ses durées à l’identique. Aucune image du bâtiment de Heron n’est utilisée dans le site livré. L’architecture provient des deux photographies IFMEREE fournies.
 
-## Contrôles réalisés sur la nouvelle version
+## Illustrations
 
-### Contrôles visuels des fichiers vectoriels, hors navigateur
+Deux nouveaux dessins détaillés ont remplacé les polygones et arbres symboliques de la version précédente. L’état trait est dérivé de chaque composition ombrée enregistrée ; il ne s’agit pas d’une seconde génération indépendante. Les lettres secondaires de l’enseigne ont été recomposées pour éviter les erreurs de génération. Les filtres de fabrication sont précalculés dans les PNG : le navigateur ne refait pas l’extraction des traits.
 
-- Les deux photographies originales ont été examinées et utilisées pour construire la géométrie.
-- Les rendus vectoriels à 0/25/50/75/100 % ont été générés et examinés. Les superpositions de lignes derrière les fenêtres et les murs ont été corrigées. Les contours et surfaces restent alignés.
-- Les SVG autonomes ont été rendus à 1440, 1024, 390 et 360 px de largeur, avec examen du grand format et de petits formats. Cela contrôle le dessin et sa mise à l’échelle, **pas la mise en page HTML complète à ces largeurs**.
-- CairoSVG a servi à produire les images statiques. Les longueurs de traits normalisées ont été converties en unités SVG pour ce rendu hors navigateur. Les fichiers du site gardent leurs attributs SVG `pathLength`.
+Contrôle des quatre fichiers : toutes les composantes visibles vérifient R = G = B. Dimensions 1799 × 874 pour la façade, 1616 × 973 pour le campus. Les deux variantes de chaque scène ont un canal alpha identique. Des échantillons de murs, sol et enseigne sont entièrement opaques ; une plaque blanche répare une découpe transparente près du toit avant la composition du cercle. Le cercle est un élément séparé, vert `#B8DD70`, sans mélange colorant les surfaces.
 
-### Contrôles du code et du DOM simulé
+Les dessins terminés, les branches, vitrages, palmiers et inscriptions ont été examinés en rendus fixes. Les planches `IFMEREE-progression-statique.png` et `IFMEREE-details-statiques.png` sont produites par le moteur SVG librsvg. **Ce ne sont pas des captures du site dans un navigateur.**
 
-Résultats passants :
+## Animation et robustesse vérifiées dans le code/DOM simulé
 
-- Façade aux cinq étapes ; fenêtres et lettres réellement animées ; géométrie inchangée ; remise à l’état final propre.
-- Pause/reprise quand la scène sort du viewport ou l’onglet est masqué ; aucune boucle d’images permanente après achèvement.
-- Campus à 0/25/50/75/100 %, puis en sens inverse ; mêmes états ; maintien lorsque le défilement s’arrête.
-- Coordonnées locales du pointeur ; retrait au départ ; indépendance de la transformation du campus.
-- Mode réduit, bouton existant, pointeur grossier, absence d’IntersectionObserver, démarrage tardif et lien direct `#ifmeree-discover`.
-- Recalcul après changement de hauteur de fenêtre.
-- Menu, accordéon, sélection de l’équipe aux boutons/clavier, visionneuse et navigation des photos, événement du déclencheur, dialogue, choix des domaines, ouverture et validation du formulaire.
-- Succès du formulaire testé avec une réponse réseau simulée : aucune candidature n’a été envoyée.
-- Syntaxe des nouveaux scripts, identifiants uniques, références SVG internes, absence de bitmap dans les SVG.
-- 49 références locales résolues dans le dossier ; HTML de `#home` à la fin conservé octet pour octet ; fichiers runtime originaux conservés, hors trois fichiers d’intégration IFMEREE.
+- Façade : 0/25/50/75/100 %, masques sur les mêmes images, arrêt hors écran/onglet caché, reprise, pas de boucle de dessin après achèvement.
+- Campus : mêmes états, parcours inverse, conservation de l’état à l’arrêt, progression recalculée après changement de hauteur de fenêtre. Le masque se déplace dans les coordonnées du dessin ; redimensionner le SVG conserve l’alignement de ses couches.
+- Souris : repères localisés à la première scène ; pas d’influence sur le masque du campus. Pointeur tactile ignoré pour cet effet, défilement natif conservé.
+- Décodage des quatre images avant activation ; succès, échec simulé et décodage encore en attente contrôlés. En cas d’échec, les images statiques restent disponibles. Le délai de garde de 4 s ne bloque ni la lecture ni les liens.
+- Préférence de mouvement réduit, bouton existant, navigation directe par ancre et délai de démarrage expiré.
+- Absence d’IntersectionObserver : solution de repli fondée sur les positions de défilement.
+- Masque bruiteux limité à une bande de 1796 × 320 unités ; bruit stable, aucune animation du filtre lui-même. Le reste du masque est une surface simple. Ces choix limitent le travail de dessin sans constituer une mesure de performances.
 
-Ces contrôles n’exécutent pas le moteur de rendu d’un navigateur et ne prouvent ni la fluidité, ni l’absence de débordement visuel.
+## Préservation et fonctionnalités
 
-## Vérifications bloquées / à compléter
+Comparaison binaire avec le ZIP joint : HTML depuis `#home` inchangé ; autres scripts/styles IPRESS et médias conservés. Seuls l’introduction, ses sources d’art et ses documents de contrôle sont remplacés. Les anciens exports propres à l’introduction, devenus inutiles, sont retirés.
 
-L’aperçu local géré n’a pas pu démarrer : erreur de montage `bwrap` / `/proc` de l’environnement. Le navigateur de référence fonctionne, mais la nouvelle version locale n’a pas pu y être ouverte avec les moyens autorisés. La protection de navigation locale n’a pas été contournée.
+Tests DOM simulés : menu mobile, accordéons, équipe par boutons et clavier, ouverture/navigation/fermeture de galerie, déclencheur photo, fenêtres de recrutement, sélection d’intérêts, erreurs de formulaire et succès avec réseau simulé. **Aucun formulaire réel n’a été envoyé.** Les comportements de rendu WebGL et la lecture vidéo n’ont pas été évalués dans un navigateur pour cette version ; leurs fichiers sont inchangés.
 
-Par conséquent, **aucune validation visuelle du site HTML complet, aucun enregistrement navigateur de la nouvelle version, aucun test sur appareil réel et aucune mesure de FPS, de coût de peinture ou de fluidité n’ont été réalisés**.
+Les références locales du HTML, des scripts, styles et SVG sont contrôlées avec casse exacte ; pas de ressource manquante ni d’identifiant dupliqué. Le ZIP contient `index.html` directement à sa racine et `.nojekyll`.
 
-Restent à vérifier en navigateur après ouverture de la version :
+## Validation qui reste à faire dans un navigateur
 
-- Mises en page complètes à 1440, 1024, 390 et 360 px ; clipping, chevauchements et débordement horizontal.
-- Premier chargement et rechargement, réseau ralenti, absence de flash, durée visuelle effective.
-- Défilement lent/rapide/inversé, arrêt, navigation clavier et tactile, rotation d’écran.
-- Position réelle lors du lien direct, pointeur, bouton de réduction, préférences système.
-- Console, requêtes réseau, caméra WebGL et vidéo réelles ; coût du dessin SVG sur appareil ordinaire.
-- Comparaison côte à côte avec Heron au même viewport, puis ajustement éventuel du rythme et des textures.
+L’environnement de prévisualisation locale est indisponible. Le site corrigé n’a donc pas été inspecté visuellement en navigateur desktop, ni en viewport mobile émulé, ni sur téléphone physique. Aucune fluidité à 60/120 Hz, compatibilité Safari réelle ou absence de débordement à chaque largeur ne peut être affirmée à partir des tests simulés. Aucun enregistrement vidéo du site corrigé n’est fourni.
 
-La page `IFMEREE-verification.html` fournit les commandes pour cette revue ; ses boutons de largeur ne simulent pas un appareil ni ses performances. La planche PNG est un livrable statique représentatif, pas une preuve de mouvement.
+Les règles responsive existantes sont conservées, avec les proportions des nouvelles illustrations réservées dans la mise en page. Après publication, utiliser `IFMEREE-verification.html` pour inspecter 1440/1024/390/360 px, faire défiler dans les deux sens, activer la réduction des animations, puis vérifier sur téléphone réel. Cette page de contrôle ne s’affiche pas dans la navigation publique.
 
-## Références appliquées
+## Ressources de conception lues
 
-Frontend Design ; GSAP Animation et ses références ; Emil Kowalski animate/recipes, review-animations/standards, animation-performance/performance-cheatsheet ; Vercel web-design-guidelines et Web Interface Guidelines ; documentation ScrollTrigger et DrawSVG.
-
-Ces documents ont été lus comme références. Ils ne sont pas présentés comme des compétences enregistrées ou installées dans un outil. Le choix natif SVG/requestAnimationFrame est permis par le brief : pas de dépendance réseau supplémentaire. L’animation de traits et les clips SVG nécessitent de la peinture ; aucune accélération GPU ni cadence garantie n’est revendiquée.
+Les guides Frontend Design (Anthropic), GSAP (MengTo), animate / review-animations / animation-performance (Emil Kowalski), Web Design Guidelines (Vercel), ainsi que leurs fichiers de soutien pertinents et la documentation officielle GSAP, ont été consultés. Il s’agit de ressources lues pour cette réalisation, pas de plugins installés dans le site. Le mouvement est implémenté en JavaScript natif sans dépendance GSAP supplémentaire.

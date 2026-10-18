@@ -3,15 +3,15 @@
 .ifmeree-intro .ifm-technical { font: 9px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .07em; }
 .ifmeree-intro .ifm-eyebrow { font: 10px/1.5 Manrope, Arial, sans-serif; font-weight: 600; letter-spacing: .12em; }
 .ifmeree-intro .ifm-drawing { position: relative; height: clamp(360px, 43vw, 680px); border-block: 1px solid var(--line); overflow: hidden; isolation: isolate; }
-.ifmeree-intro .ifm-drawing::before { content: ''; position: absolute; inset: 28px; border: 1px solid #e8ece5; pointer-events: none; }
+.ifmeree-intro .ifm-drawing::before { content: ''; position: absolute; inset: 28px; border: 1px solid #CCCCCC; pointer-events: none; }
 .ifmeree-intro .ifm-drawing-meta, .ifmeree-intro .ifm-drawing-foot { position: absolute; z-index: 2; inset-inline: 44px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); }
 .ifmeree-intro .ifm-drawing-meta { top: 40px; }
 .ifmeree-intro .ifm-drawing-foot { bottom: 36px; }
 .ifmeree-intro .ifm-pointer-hint b { margin-left: 12px; color: var(--blue); font-size: 14px; }
 .ifmeree-intro .ifm-facade-wrap { position: absolute; inset: 74px 6.5% 64px; display: flex; align-items: center; justify-content: center; }
 .ifmeree-intro .ifm-ruler { position: absolute; pointer-events: none; opacity: .6; }
-.ifmeree-intro .ifm-ruler-top { left: 28px; right: 28px; top: 12px; height: 9px; background: repeating-linear-gradient(90deg, #9aa999 0 1px, transparent 1px 12px); }
-.ifmeree-intro .ifm-ruler-left { left: 12px; top: 28px; bottom: 28px; width: 9px; background: repeating-linear-gradient(0deg, #9aa999 0 1px, transparent 1px 12px); }
+.ifmeree-intro .ifm-ruler-top { left: 28px; right: 28px; top: 12px; height: 9px; background: repeating-linear-gradient(90deg, #777777 0 1px, transparent 1px 12px); }
+.ifmeree-intro .ifm-ruler-left { left: 12px; top: 28px; bottom: 28px; width: 9px; background: repeating-linear-gradient(0deg, #777777 0 1px, transparent 1px 12px); }
 .ifmeree-intro .ifm-cross { position: absolute; z-index: 3; color: var(--blue); font: 18px/1 ui-monospace, monospace; transform: translate(-50%,-50%); }
 .ifmeree-intro .ifm-cross-tl { left: 28px; top: 28px; }.ifmeree-intro .ifm-cross-tr { left: calc(100% - 28px); top: 28px; }
 .ifmeree-intro .ifm-cross-bl { left: 28px; top: calc(100% - 28px); }.ifmeree-intro .ifm-cross-br { left: calc(100% - 28px); top: calc(100% - 28px); }
@@ -46,8 +46,6 @@
 .ifmeree-intro .ifm-campus-cross { position: absolute; color: var(--blue); font: 24px/1 ui-monospace, monospace; }
 .ifmeree-intro .ifm-campus-cross-a { top: 8%; left: 5%; }.ifmeree-intro .ifm-campus-cross-b { bottom: 7%; right: 6%; }
 .ifmeree-intro .ifm-campus-caption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 17px; }
-.ifmeree-intro .ifm-color-key { display: flex; align-items: center; gap: 5px; color: var(--muted); font: 7px/1.5 ui-monospace, monospace; letter-spacing: .04em; }
-.ifmeree-intro .ifm-color-key i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink); }.ifmeree-intro .ifm-color-key i:nth-child(2) { background: var(--blue); }.ifmeree-intro .ifm-color-key i:nth-child(3) { background: var(--green-dark); margin-right: 5px; }
 .ifmeree-intro .ifm-editorial { border-left: 1px solid var(--line); padding: 44px 37px 42px; }
 .ifmeree-intro .ifm-editorial .ifm-eyebrow { color: var(--green-dark); font-size: 9px; margin-bottom: 26px; }
 .ifmeree-intro .ifm-editorial h2 { font-size: clamp(30px, 3.05vw, 52px); line-height: 1.07; letter-spacing: -.055em; }
@@ -125,7 +123,6 @@
   .ifmeree-intro .ifm-panel-top { font-size: 7px; }
   .ifmeree-intro .ifm-campus-caption { gap: 12px; }
   .ifmeree-intro .ifm-campus-caption .ifm-technical { font-size: 8px; }
-  .ifmeree-intro .ifm-color-key { font-size: 6px; }
   .ifmeree-intro .ifm-editorial { padding: 29px 20px 32px; }
   .ifmeree-intro .ifm-editorial .ifm-eyebrow { font-size: 8px; max-width: 28ch; margin-bottom: 22px; }
   .ifmeree-intro .ifm-editorial h2 { font-size: clamp(25px,6.5vw,33px); }
@@ -139,40 +136,39 @@
 }
 /* The existing button can override the OS preference; match its established contract. */
 
-/* Shared, self-contained vector geometry. Opaque white surfaces isolate the accent. */
-.ifmeree-intro .ifm-architectural-svg { display: block; width: 100%; height: auto; overflow: hidden; }
-.ifmeree-intro .ifm-facade-svg { height: 100%; }
-.ifmeree-intro .ifm-art-render { opacity: var(--ifm-paint, 1); }
-.ifmeree-intro .ifm-campus-art { padding: 0; margin-block: 20px; aspect-ratio: 1536 / 850; }
-.ifmeree-intro .ifm-campus-svg { aspect-ratio: 1536 / 850; }
+/* Registered raster illustrations; all coordinates remain in one SVG viewBox. */
+.ifmeree-intro .ifm-drawing, .ifmeree-intro .ifm-campus-panel {
+  --ink: #171717; --muted: #777777; --line: #CCCCCC;
+  --blue: #777777; --blue-dark: #444444; --green-dark: #444444;
+  background: #FFFFFF; color: #171717;
+}
+.ifmeree-intro .ifm-architectural-svg { display: block; width: 100%; height: 100%; visibility: hidden; overflow: hidden; }
+.ifmeree-intro .ifm-static-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); }
+.ifmeree-intro .ifm-architectural-svg image { filter: grayscale(1); }
+.ifmeree-intro .ifm-campus-art { padding: 0; margin-block: 20px; aspect-ratio: 1616 / 973; }
+.ifmeree-intro .ifm-static-circle { position: absolute; width: 31.56%; aspect-ratio: 1; border-radius: 50%; left: 49.2%; top: 2.98%; background: #B8DD70; }
 .ifmeree-intro .ifm-campus-cross-a { top: 0; left: 2%; }
 .ifmeree-intro .ifm-campus-cross-b { bottom: 0; right: 2%; }
 .ifmeree-intro .ifm-technical { font-size: 10px; }
 .ifmeree-intro .ifm-dimension span { font-size: 9px; }
-.ifmeree-intro .ifm-color-key { font-size: 8px; }
-html.ifm-motion-pending .ifm-facade-svg .ifm-vector-stroke { opacity: 0; }
-html.ifm-motion-pending .ifm-facade-svg .ifm-art-render { opacity: 0; }
-html.ifm-art-fallback .ifmeree-intro .ifm-vector-stroke,
-html.reduce-motion .ifmeree-intro .ifm-vector-stroke { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; }
-html.ifm-art-fallback .ifmeree-intro [data-paint],
-html.reduce-motion .ifmeree-intro [data-paint] { clip-path: none !important; opacity: 1 !important; }
+.ifmeree-intro .is-art-ready > .ifm-architectural-svg { visibility: visible; }
+.ifmeree-intro .is-art-ready > .ifm-static-art,
+.ifmeree-intro .is-art-ready > .ifm-static-circle { visibility: hidden; }
+html.ifm-motion-pending .ifm-facade-wrap > .ifm-static-art { visibility: hidden; }
+html.ifm-art-fallback .ifm-facade-wrap > .ifm-static-art { visibility: visible; }
+html.ifm-art-fallback .ifm-facade-svg { visibility: hidden; }
 html.reduce-motion .ifmeree-intro .ifm-pointer { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  html:not(.allow-motion) .ifmeree-intro .ifm-vector-stroke { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; }
-  html:not(.allow-motion) .ifmeree-intro [data-paint] { clip-path: none !important; opacity: 1 !important; }
-  html:not(.allow-motion) .ifmeree-intro .ifm-pointer { display: none; }
+ html:not(.allow-motion) .ifmeree-intro .ifm-pointer { display: none; }
 }
 @media (max-width:800px) {
-  .ifmeree-intro .ifm-campus-art { margin-block: 8px; }
-  .ifmeree-intro .ifm-technical { font-size: 9px; }
+ .ifmeree-intro .ifm-campus-art { margin-block: 8px; }
+ .ifmeree-intro .ifm-technical { font-size: 9px; }
 }
 @media (max-width:500px) {
-  .ifmeree-intro .ifm-drawing { height: 286px; }
-  .ifmeree-intro .ifm-facade-wrap { inset: 52px 10px 54px; }
-  .ifmeree-intro .ifm-drawing-meta { font-size: 8px; }
-  .ifmeree-intro .ifm-drawing-foot { font-size: 8px; }
-  .ifmeree-intro .ifm-dimension { left: 18%; right: 10%; bottom: 60px; }
-  .ifmeree-intro .ifm-dimension span { font-size: 7px; }
-  .ifmeree-intro .ifm-color-key { font-size: 7px; }
+ .ifmeree-intro .ifm-drawing { height: 286px; }
+ .ifmeree-intro .ifm-facade-wrap { inset: 52px 10px 54px; }
+ .ifmeree-intro .ifm-drawing-meta, .ifmeree-intro .ifm-drawing-foot { font-size: 8px; }
+ .ifmeree-intro .ifm-dimension { left: 18%; right: 10%; bottom: 60px; }
+ .ifmeree-intro .ifm-dimension span { font-size: 7px; }
 }
-

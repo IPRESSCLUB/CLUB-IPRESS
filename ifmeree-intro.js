@@ -70,7 +70,12 @@
   }
   function start() {
     if (ready || disposed) return;
-    ready = true; entrance = wantsEntrance && !reduced;
+    ready = true; entrance = wantsEntrance && !reduced && !window.__ifmBootExpired;
+    if (window.__ifmBootExpired) finishEntrance();
+    if (!window.__ifmBootExpired) facadeSVG.parentElement.classList.add('is-art-ready');
+    campusSVG.parentElement.classList.add('is-art-ready');
+    if (!window.__ifmBootExpired) facadeSVG.parentElement.querySelector('.ifm-static-art').setAttribute('alt', '');
+    campusSVG.parentElement.querySelector('.ifm-static-art').setAttribute('alt', '');
     if (entrance) drawing.classList.add('is-drawing'); else finishEntrance();
     clearTimeout(window.__ifmBootTimer);
     root.classList.remove('ifm-motion-pending');
@@ -127,8 +132,22 @@
     if (event.persisted) return;
     disposed = true; observer?.disconnect(); resizeObserver?.disconnect();
   });
-  if (document.fonts?.ready) {
-    Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1200))]).then(start, start);
-    document.fonts.ready.then(refresh, () => {});
-  } else start();
+  /* Decoding happens before either animated layer becomes visible. */
+  function decodeArtwork(src) {
+    const image = new Image(); image.src = src;
+    if (image.decode) return image.decode();
+    return new Promise((resolve, reject) => {
+      if (image.complete) return image.naturalWidth ? resolve() : reject(new Error(src));
+      image.onload = resolve; image.onerror = reject;
+    });
+  }
+  const assets = Array.from(new Set(Array.from(intro.querySelectorAll('svg image'), el => el.getAttribute('href'))));
+  const fontsReady = document.fonts?.ready ? Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1200))]): Promise.resolve();
+  Promise.all([fontsReady, ...assets.map(decodeArtwork)]).then(start).catch(() => {
+    clearTimeout(window.__ifmBootTimer);
+    root.classList.remove('ifm-motion-pending');
+    root.classList.add('ifm-art-fallback');
+    finishEntrance();
+  });
+  document.fonts?.ready.then(refresh, () => {});
 })();
