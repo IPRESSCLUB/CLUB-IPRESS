@@ -9,12 +9,6 @@
 .ifmeree-intro .ifm-drawing-foot { bottom: 36px; }
 .ifmeree-intro .ifm-pointer-hint b { margin-left: 12px; color: var(--blue); font-size: 14px; }
 .ifmeree-intro .ifm-facade-wrap { position: absolute; inset: 74px 6.5% 64px; display: flex; align-items: center; justify-content: center; }
-.ifmeree-intro .ifm-facade { display: block; width: 100%; height: 100%; overflow: visible; }
-.ifmeree-intro .ifm-structural-lines { opacity: 0; }
-.ifmeree-intro .ifm-ink-pass { fill: #fff; transform-box: fill-box; transform-origin: left center; }
-.ifmeree-intro .is-drawing .ifm-ink-pass { animation: ifm-ink-pass 850ms cubic-bezier(.3,.08,.35,1) var(--ifm-delay) both; }
-.ifmeree-intro .is-drawing .ifm-structural-lines { animation: ifm-lines-settle 2500ms linear both; }
-.ifmeree-intro .is-drawing .ifm-structural-lines path { stroke-dasharray: 1; animation: ifm-trace 1200ms cubic-bezier(.3,.08,.35,1) var(--ifm-delay,0ms) both; }
 .ifmeree-intro .ifm-ruler { position: absolute; pointer-events: none; opacity: .6; }
 .ifmeree-intro .ifm-ruler-top { left: 28px; right: 28px; top: 12px; height: 9px; background: repeating-linear-gradient(90deg, #9aa999 0 1px, transparent 1px 12px); }
 .ifmeree-intro .ifm-ruler-left { left: 12px; top: 28px; bottom: 28px; width: 9px; background: repeating-linear-gradient(0deg, #9aa999 0 1px, transparent 1px 12px); }
@@ -49,13 +43,6 @@
 .ifmeree-intro .ifm-campus-panel { position: relative; min-width: 0; padding: 32px 26px 27px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; overflow: hidden; }
 .ifmeree-intro .ifm-panel-top { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); }
 .ifmeree-intro .ifm-campus-art { position: relative; width: 100%; padding-top: 16%; padding-bottom: 14%; isolation: isolate; }
-.ifmeree-intro .ifm-orbit { position: absolute; z-index: -1; width: 59%; aspect-ratio: 1; border-radius: 50%; background: var(--green); left: 29%; top: -2%; opacity: .9; }
-.ifmeree-intro .ifm-campus-layers { position: relative; width: 100%; mix-blend-mode: multiply; }
-.ifmeree-intro .ifm-campus-layers img { display: block; width: 100%; height: auto; }
-.ifmeree-intro .ifm-campus-base { filter: grayscale(1); }
-.ifmeree-intro .ifm-campus-color, .ifmeree-intro .ifm-campus-lens { position: absolute; inset: 0; }
-.ifmeree-intro .ifm-campus-lens { clip-path: circle(0 at 50% 50%); opacity: 0; transition: opacity 180ms ease-out; }
-.ifmeree-intro .ifm-campus-lens.is-active { opacity: 1; }
 .ifmeree-intro .ifm-campus-cross { position: absolute; color: var(--blue); font: 24px/1 ui-monospace, monospace; }
 .ifmeree-intro .ifm-campus-cross-a { top: 8%; left: 5%; }.ifmeree-intro .ifm-campus-cross-b { bottom: 7%; right: 6%; }
 .ifmeree-intro .ifm-campus-caption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 17px; }
@@ -77,9 +64,6 @@
 .ifmeree-intro .ifm-handoff a { color: var(--blue-dark); display: flex; align-items: center; gap: 20px; }
 .ifmeree-intro .ifm-handoff a span { font-size: 19px; }
 .ifmeree-intro a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
-@keyframes ifm-ink-pass { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes ifm-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes ifm-lines-settle { 0%,75% { opacity: 1; } 100% { opacity: 0; } }
 @media (hover:hover) and (pointer:fine) and (min-width:801px) {
   .ifmeree-intro .ifm-pointer { display: block; }
   .ifmeree-intro .ifm-drawing.is-pointer-ready { cursor: crosshair; }
@@ -109,13 +93,11 @@
   .ifmeree-intro .ifm-discover { grid-template-columns: 1fr; }
   .ifmeree-intro .ifm-campus-panel { padding: 26px; gap: 24px; }
   .ifmeree-intro .ifm-campus-art { max-width: 650px; align-self: center; padding-top: 8%; padding-bottom: 5%; }
-  .ifmeree-intro .ifm-orbit { width: 50%; top: 0; left: 37%; }
   .ifmeree-intro .ifm-editorial { border-left: 0; border-top: 1px solid var(--line); padding: 34px 26px; }
   .ifmeree-intro .ifm-editorial h2 { font-size: clamp(30px,6vw,48px); }
   .ifmeree-intro .ifm-editorial-copy { font-size: 13px; }
   .ifmeree-intro .ifm-fields dt { font-size: 13px; }
   .ifmeree-intro .ifm-fields dd { font-size: 12px; }
-  .ifmeree-intro .ifm-campus-lens { display: none; }
   .ifmeree-intro .ifm-handoff { font-size: 8px; }
 }
 @media (max-width:500px) {
@@ -156,13 +138,41 @@
   .ifmeree-intro .ifm-handoff a { justify-content: space-between; font-size: 8px; }
 }
 /* The existing button can override the OS preference; match its established contract. */
-html.reduce-motion .ifmeree-intro .ifm-ink-image { mask: none; }
-html.reduce-motion .ifmeree-intro .ifm-structural-lines { display: none; }
-html.reduce-motion .ifmeree-intro .ifm-campus-color { clip-path: none !important; }
-html.reduce-motion .ifmeree-intro .ifm-pointer, html.reduce-motion .ifmeree-intro .ifm-campus-lens { display: none; }
-@media (prefers-reduced-motion:reduce) {
-  html:not(.allow-motion) .ifmeree-intro .ifm-ink-image { mask: none; }
-  html:not(.allow-motion) .ifmeree-intro .ifm-structural-lines { display: none; }
-  html:not(.allow-motion) .ifmeree-intro .ifm-campus-color { clip-path: none !important; }
-  html:not(.allow-motion) .ifmeree-intro .ifm-pointer, html:not(.allow-motion) .ifmeree-intro .ifm-campus-lens { display: none; }
+
+/* Shared, self-contained vector geometry. Opaque white surfaces isolate the accent. */
+.ifmeree-intro .ifm-architectural-svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.ifmeree-intro .ifm-facade-svg { height: 100%; }
+.ifmeree-intro .ifm-art-render { opacity: var(--ifm-paint, 1); }
+.ifmeree-intro .ifm-campus-art { padding: 0; margin-block: 20px; aspect-ratio: 1536 / 850; }
+.ifmeree-intro .ifm-campus-svg { aspect-ratio: 1536 / 850; }
+.ifmeree-intro .ifm-campus-cross-a { top: 0; left: 2%; }
+.ifmeree-intro .ifm-campus-cross-b { bottom: 0; right: 2%; }
+.ifmeree-intro .ifm-technical { font-size: 10px; }
+.ifmeree-intro .ifm-dimension span { font-size: 9px; }
+.ifmeree-intro .ifm-color-key { font-size: 8px; }
+html.ifm-motion-pending .ifm-facade-svg .ifm-vector-stroke { opacity: 0; }
+html.ifm-motion-pending .ifm-facade-svg .ifm-art-render { opacity: 0; }
+html.ifm-art-fallback .ifmeree-intro .ifm-vector-stroke,
+html.reduce-motion .ifmeree-intro .ifm-vector-stroke { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; }
+html.ifm-art-fallback .ifmeree-intro [data-paint],
+html.reduce-motion .ifmeree-intro [data-paint] { clip-path: none !important; opacity: 1 !important; }
+html.reduce-motion .ifmeree-intro .ifm-pointer { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  html:not(.allow-motion) .ifmeree-intro .ifm-vector-stroke { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; }
+  html:not(.allow-motion) .ifmeree-intro [data-paint] { clip-path: none !important; opacity: 1 !important; }
+  html:not(.allow-motion) .ifmeree-intro .ifm-pointer { display: none; }
 }
+@media (max-width:800px) {
+  .ifmeree-intro .ifm-campus-art { margin-block: 8px; }
+  .ifmeree-intro .ifm-technical { font-size: 9px; }
+}
+@media (max-width:500px) {
+  .ifmeree-intro .ifm-drawing { height: 286px; }
+  .ifmeree-intro .ifm-facade-wrap { inset: 52px 10px 54px; }
+  .ifmeree-intro .ifm-drawing-meta { font-size: 8px; }
+  .ifmeree-intro .ifm-drawing-foot { font-size: 8px; }
+  .ifmeree-intro .ifm-dimension { left: 18%; right: 10%; bottom: 60px; }
+  .ifmeree-intro .ifm-dimension span { font-size: 7px; }
+  .ifmeree-intro .ifm-color-key { font-size: 7px; }
+}
+

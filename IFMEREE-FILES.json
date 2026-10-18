@@ -1,0 +1,337 @@
+[
+  {
+    "file": ".nojekyll",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "FONT-LICENSES.txt",
+    "bytes": 8882,
+    "sha256": "42f85837c0464c53ab4711c263e96a6cc5bd9589225f8f8a14420d4e01ad24dd"
+  },
+  {
+    "file": "IFMEREE-NOTES.md",
+    "bytes": 5991,
+    "sha256": "590509acd9d0addfce3902db968f8aceffbcc67669528d7712c536c87478f128"
+  },
+  {
+    "file": "IFMEREE-V2-LIRE-MOI.md",
+    "bytes": 4728,
+    "sha256": "4e16ca3ee017f374bc4ca4d064e53dc468427847f97e8dbd22d72c23382b1284"
+  },
+  {
+    "file": "IFMEREE-VERIFICATION.md",
+    "bytes": 6085,
+    "sha256": "313151e5df95fcff048efb065c500dd00057a5b99f95da8a391828ac30da864e"
+  },
+  {
+    "file": "IFMEREE-etapes-vectorielles.png",
+    "bytes": 1546037,
+    "sha256": "5dae4226e4d3e48a9c96241ce1629b16ef8c9bafce41dec5beaff0d49206c29f"
+  },
+  {
+    "file": "IFMEREE-verification.html",
+    "bytes": 451942,
+    "sha256": "9aa2a44b4b7889a5b20248fb37aa99e1fe7b8f05d03a33236cff1634c5b7b5b1"
+  },
+  {
+    "file": "MOTION-NOTES.md",
+    "bytes": 2279,
+    "sha256": "d060239be1e9ee580873a3c164bf9e2dd2246986f43e16c9b4c78203a9ac89dd"
+  },
+  {
+    "file": "README.md",
+    "bytes": 4481,
+    "sha256": "be41f3df4f8d0c7711461329b524d4997eaa978910d910f762af12f3743b7207"
+  },
+  {
+    "file": "THREE-LICENSE.txt",
+    "bytes": 1081,
+    "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  {
+    "file": "action.jpg",
+    "bytes": 98358,
+    "sha256": "4c55f29c44cf62170b5e3b50861edda828cc3acfec32f8edb6a7c5b26fc509f8"
+  },
+  {
+    "file": "aimade.webp",
+    "bytes": 311150,
+    "sha256": "89a3eb656ab94afd04bf2fe140b3eee3384078045e57a7f95ef598740780ec18"
+  },
+  {
+    "file": "amine.webp",
+    "bytes": 320234,
+    "sha256": "9d4830496b7868b86139c1196dc2aca288dfb5fcc223b39998ace534b1481ee3"
+  },
+  {
+    "file": "app.js",
+    "bytes": 16187,
+    "sha256": "7aee7c6135bfceaf76de2f01e4512d76afc825e0ba40aaaae57196dd966a949c"
+  },
+  {
+    "file": "application.js",
+    "bytes": 8139,
+    "sha256": "cab4c7849ac5abc22988fc70cb5a649ab201188cfd83c1d96b3fd711d662c56d"
+  },
+  {
+    "file": "art-design.jpg",
+    "bytes": 213727,
+    "sha256": "c86d0184c56965d89b18e519e9e424889b073f8d78a694195f9c72a967d42759"
+  },
+  {
+    "file": "art-photo-video.jpg",
+    "bytes": 84463,
+    "sha256": "ab7ed9cbbc308be0d91250bd72aa2c0cecb5ab7a4229d421c0de08d2ace292af"
+  },
+  {
+    "file": "art-sound.jpg",
+    "bytes": 110890,
+    "sha256": "808d7d4c332f868f3bf89425d0372f9b2a9ba5d945915c07b7d8ac814358e798"
+  },
+  {
+    "file": "badges.jpg",
+    "bytes": 104102,
+    "sha256": "9f7fe8243d5233136e8cbb4c18703618524b0ff7a1399f8a353c77c871b30ce8"
+  },
+  {
+    "file": "campus-color.webp",
+    "bytes": 381708,
+    "sha256": "a3785935b4a9c1a0b8998642b7e4ad8294b3f47b116fd2c11848621582fa40e8"
+  },
+  {
+    "file": "campus.jpg",
+    "bytes": 1044333,
+    "sha256": "6c3cb10ee8c5942f5c0eb429d65fef8369f5bad9af50c80452e7610017e29b94"
+  },
+  {
+    "file": "crew.jpg",
+    "bytes": 147315,
+    "sha256": "c75294039dad324d3c83d266ae8a5ab9847d3f16e488924c0812cdc930c4534a"
+  },
+  {
+    "file": "download",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "event-01.jpg",
+    "bytes": 198621,
+    "sha256": "9def097f0092fe23443bc694f185f5b6b78d6a978ecad5ada61a714be08d1f9e"
+  },
+  {
+    "file": "event-02.jpg",
+    "bytes": 292803,
+    "sha256": "959104ee0deae7134edae098cced6d43e0275fc06580f6a3c7201aaff1c0cc02"
+  },
+  {
+    "file": "event-03.jpg",
+    "bytes": 116657,
+    "sha256": "4de37767a9bdd4ff0f285aa8c99489ab686d51181cdb2859ba82307bee34c7f3"
+  },
+  {
+    "file": "event-04.jpg",
+    "bytes": 102918,
+    "sha256": "02de3bd5b2fc168aa3e07b8f4006f04d47071f488ca45ba5bccc2cc72e1f6768"
+  },
+  {
+    "file": "event-05.jpg",
+    "bytes": 184019,
+    "sha256": "d0501b9593f96f589a3a5e88db13fed649e83212da6d5b2995fbf56139889c24"
+  },
+  {
+    "file": "event-06.jpg",
+    "bytes": 83487,
+    "sha256": "df5c03f69ff90d0687565a408773a9682c7f35502bb77eb0ca7988abb16c6640"
+  },
+  {
+    "file": "event-07.jpg",
+    "bytes": 219233,
+    "sha256": "93741ee658638ed39cd40958bb36226d21dc4282411f8f65bec60fff0c3b9801"
+  },
+  {
+    "file": "event-08.jpg",
+    "bytes": 80850,
+    "sha256": "e84a0f6ce5433f62feaad24455e66460f224d6f672967b2ff5501713166c69f0"
+  },
+  {
+    "file": "facade-ink.webp",
+    "bytes": 371708,
+    "sha256": "2e74d833339a3cf391223d31be541e50302c9a40defa6e55038ee4c35e160caf"
+  },
+  {
+    "file": "favicon.svg",
+    "bytes": 258,
+    "sha256": "fde80f02b4bc70d2c30201679b6500835e9c4a2386c47f31beeb39dd813e70cd"
+  },
+  {
+    "file": "houssam.webp",
+    "bytes": 309498,
+    "sha256": "ef21be4be2ad828a6b71d8621cd7513db4b4a9ff5c9593d873f605a56e214d60"
+  },
+  {
+    "file": "ifmeree-art.js",
+    "bytes": 2680,
+    "sha256": "8f24ce2557dea9db070dbcd9b3aeed2836fdd66aeeb50baa0fa1b8f01995e1bd"
+  },
+  {
+    "file": "ifmeree-artwork-source.py",
+    "bytes": 21695,
+    "sha256": "c666f0cfdeb0f93d2a0b1095be981b9172b315cc00bec7e9d1913620fe3ae0eb"
+  },
+  {
+    "file": "ifmeree-campus.svg",
+    "bytes": 283642,
+    "sha256": "923c996941e81af88aa1c076de2958c559cbe9a83e0316d54157ca63b7634a7c"
+  },
+  {
+    "file": "ifmeree-facade.svg",
+    "bytes": 163789,
+    "sha256": "dfe58b1355f5e474852b0b34ce1ca55a71d4963fef8b9d626c7728e2ebc0b785"
+  },
+  {
+    "file": "ifmeree-intro.css",
+    "bytes": 15651,
+    "sha256": "a36351cc1b61a96882527acdb928aaa1f96af56c8bd45bf8ffaa71dff4e60118"
+  },
+  {
+    "file": "ifmeree-intro.js",
+    "bytes": 6993,
+    "sha256": "c197b79cfab74c6e617cee7fd6850698d667f35f2bc886d6ef46fdf9993711c2"
+  },
+  {
+    "file": "ifmeree-review.js",
+    "bytes": 1940,
+    "sha256": "cf3b45765d3c12e295e54cd3c226a2ca988d9c679a6210eeeb899f591b04ab86"
+  },
+  {
+    "file": "ifmeree.jpg",
+    "bytes": 89631,
+    "sha256": "a758e2d3e4ebfd02535163b53313bcae18e1d1e51ff5a111f1d5734043f7c94a"
+  },
+  {
+    "file": "index.html",
+    "bytes": 486831,
+    "sha256": "d4898fb72ec92422d4ac1812dc6fe1c746ee1336f5ccfc753f33cc89bf0b7537"
+  },
+  {
+    "file": "ipress-film-poster.jpg",
+    "bytes": 51801,
+    "sha256": "f19aacd684847a71b99dbfdf7e6d2c73cc5cf37e210a1fa52498db6a1207c376"
+  },
+  {
+    "file": "ipress-film.mp4",
+    "bytes": 23262223,
+    "sha256": "df9a6f8acbae2dd35049bc2a417c576ffb75c700a9f02523f68d547cec878f7c"
+  },
+  {
+    "file": "ipress.png",
+    "bytes": 27263,
+    "sha256": "244a4daafd21f384e1bbaa777c5664ab366a311c27701edc9bb26e50dc0fcdd6"
+  },
+  {
+    "file": "mamoune.webp",
+    "bytes": 310928,
+    "sha256": "350c94ae52d26b5d16c4320b75482891c83519b348be021c146bf56e595f87af"
+  },
+  {
+    "file": "manrope.ttf",
+    "bytes": 94972,
+    "sha256": "a13d9b41b0a471ce58f0e46d377fa3cc76615e4632c3b15eb397caadf7a13f0a"
+  },
+  {
+    "file": "media.css",
+    "bytes": 4895,
+    "sha256": "544338a9bc88be7388a12c1d55655d152fd6e7e4cd25a0905fdcc876bd2d1662"
+  },
+  {
+    "file": "media.js",
+    "bytes": 1969,
+    "sha256": "8de0ab3076e36ad2cd3cd2243cad4182a552e72d982792f9ff28ac16f60fafc8"
+  },
+  {
+    "file": "motion.css",
+    "bytes": 6506,
+    "sha256": "fc1884236b4a10e7dee2cf4e6e3de650b61d7fc98195bb0e1650e892e2865d1b"
+  },
+  {
+    "file": "motion.js",
+    "bytes": 4550,
+    "sha256": "37f8ba3a80ef9708642285c7137b5906065856aab10806eab10e8eeb93b6e8d0"
+  },
+  {
+    "file": "pages.css",
+    "bytes": 5780,
+    "sha256": "eae84f7933d6506e6cc31a193d5d362db3bc568389e36d461bea9cf847b8c52f"
+  },
+  {
+    "file": "photo-video-original.jpg",
+    "bytes": 98358,
+    "sha256": "4c55f29c44cf62170b5e3b50861edda828cc3acfec32f8edb6a7c5b26fc509f8"
+  },
+  {
+    "file": "recruitment.css",
+    "bytes": 17196,
+    "sha256": "be57c7ba7c0324ba522f06a8defd7f5a60f94a3e59bfee0f8ea89237e06a8ec8"
+  },
+  {
+    "file": "recruitment.js",
+    "bytes": 2001,
+    "sha256": "0f5af2bf1281fb313cd5a87656f66bd60c150032840efea545fd3a2249382502"
+  },
+  {
+    "file": "rim.webp",
+    "bytes": 312440,
+    "sha256": "6672825c91aedb5998b65843738a1c4cfa1cca07b1d9180868146eca7806c3bd"
+  },
+  {
+    "file": "scene.js",
+    "bytes": 9020,
+    "sha256": "ffb17c5163533c9537fd60170116965178de59ddc0a6cdc641cd1f397bbc0251"
+  },
+  {
+    "file": "sound-communication-original.jpg",
+    "bytes": 446521,
+    "sha256": "938363eb9e7b7f6ef7f5ad8e4201dcd585b760ee276ef7ea7001cfe2da4d81a4"
+  },
+  {
+    "file": "space-bold.ttf",
+    "bytes": 69308,
+    "sha256": "3e756954468ff1cb302dae0414262e72f76a67d87bef3fa1f3226cd0fb9b2d85"
+  },
+  {
+    "file": "styles.css",
+    "bytes": 34986,
+    "sha256": "99e585594070ef885ca49c898ad48fad468dd484e9781e7160e236601b3c800d"
+  },
+  {
+    "file": "three.core.min.js",
+    "bytes": 381124,
+    "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"
+  },
+  {
+    "file": "three.module.min.js",
+    "bytes": 338908,
+    "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"
+  },
+  {
+    "file": "together.jpg",
+    "bytes": 126819,
+    "sha256": "22b46d963fbb2a73145dd5d58ad443885d44654450e3e8494e6dcb4a1ad146e9"
+  },
+  {
+    "file": "wassima.webp",
+    "bytes": 294824,
+    "sha256": "1259d80cc77d0268b556106461d09ba9ae592e9529dbe9f7ac9d08fe9b6aebd0"
+  },
+  {
+    "file": "welcome.jpg",
+    "bytes": 115327,
+    "sha256": "12c85585ab317c7df325951f961e5b418facd49057a2750a69bc9c802bf57b1a"
+  },
+  {
+    "file": "zineb.webp",
+    "bytes": 227082,
+    "sha256": "bce353caea3d3faa3c1a2cb11a7badcd160927116484e3f9cc342aa6c5f015b3"
+  }
+]
